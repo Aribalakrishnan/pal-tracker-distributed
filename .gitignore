@@ -6,4 +6,6 @@ build
 *.iws
 .DS_Store
 .env
+.txt
+gradlew
 ci/variables.yml
