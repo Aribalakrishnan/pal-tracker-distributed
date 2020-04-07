@@ -1,5 +1,7 @@
 apply from: "$projectDir/../server.gradle"
-
+repositories {
+    mavenCentral()
+}
 dependencies {
     compile project(":components:accounts")
     compile project(":components:projects")
