@@ -1,5 +1,5 @@
 package io.pivotal.pal.tracker.allocations;
-import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+/*import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.client.RestOperations;
@@ -26,5 +26,18 @@ public class ProjectClient {
     public ProjectInfo getProjectFromCache(long projectId, Throwable cause) {
         logger.info("Getting project with id {} from cache", projectId);
         return projectsCache.get(projectId);
+    }
+}*/
+import org.springframework.web.client.RestOperations;
+public class ProjectClient {
+    private final RestOperations restOperations;
+    private final String registrationServerEndpoint;
+
+    public ProjectClient(RestOperations restOperations, String registrationServerEndpoint) {
+        this.restOperations= restOperations;
+        this.endpoint = registrationServerEndpoint;
+    }
+    public ProjectInfo getProject(long projectId) {
+         return restOperations.getForObject(endpoint + "/projects/" + projectId, ProjectInfo.class);
     }
 }
