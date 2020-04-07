@@ -31,7 +31,7 @@ public class ProjectClient {
 import org.springframework.web.client.RestOperations;
 public class ProjectClient {
     private final RestOperations restOperations;
-    private final String registrationServerEndpoint;
+    private final String endpoint;
 
     public ProjectClient(RestOperations restOperations, String registrationServerEndpoint) {
         this.restOperations= restOperations;
